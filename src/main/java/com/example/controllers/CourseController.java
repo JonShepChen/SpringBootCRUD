@@ -38,8 +38,13 @@ public class CourseController {
 	
 	@RequestMapping(value="/{courseId}", method=RequestMethod.DELETE)
 	@ResponseBody
-	public Course deleteCourse(@PathVariable(name="courseId") Long id) {
+	public Long deleteCourse(@PathVariable(name="courseId") Long id) {
 		return courseService.deleteCourse(id);
+	}
+	
+	@RequestMapping(method=RequestMethod.GET)
+	public Iterable<Course> getAllCourses() {
+		return courseService.getAllCourses();
 	}
 
 }
