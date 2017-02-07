@@ -36,7 +36,12 @@ public class StudentController {
 	}
 
 	@RequestMapping(value="/{studentId}", method=RequestMethod.DELETE)
-	public Student deleteStudent(@PathVariable(name="studentId") Long id) {
+	public Long deleteStudent(@PathVariable(name="studentId") Long id) {
 		return studentService.deleteStudent(id);
+	}
+	
+	@RequestMapping(method=RequestMethod.GET)
+	public Iterable<Student> getAllStudents() {
+		return studentService.getAllStudents();
 	}
 }

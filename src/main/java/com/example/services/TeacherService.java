@@ -7,6 +7,7 @@ public interface TeacherService {
 	public Teacher getTeacher(Long id);
 	public Teacher addTeacher(Teacher teacher); 
 	public Teacher updateTeacher(Long id, Teacher teacher);
-	public Teacher deleteTeacher(Long id);
+	public Long deleteTeacher(Long id);
+	public Iterable<Teacher> getAllTeachers();
 
 }

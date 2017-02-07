@@ -38,7 +38,12 @@ public class TeacherController {
 	
 	@RequestMapping(value="/{teacherId}", method=RequestMethod.DELETE)
 	@ResponseBody
-	public Teacher deleteTeacher(@PathVariable(name="teacherId") Long id) {
+	public Long deleteTeacher(@PathVariable(name="teacherId") Long id) {
 		return teacherService.deleteTeacher(id);
+	}
+	
+	@RequestMapping(method=RequestMethod.GET)
+	public Iterable<Teacher> getAllTeachers() {
+		return teacherService.getAllTeachers();
 	}
 }

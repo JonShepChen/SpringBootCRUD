@@ -1,7 +1,5 @@
 package com.example.services;
 
-import java.util.List;
-
 import com.example.entities.Course;
 
 public interface CourseService {

@@ -1,35 +1,48 @@
 package com.example.services.impl;
 
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.dao.TeacherDao;
 import com.example.entities.Teacher;
 import com.example.services.TeacherService;
 
 @Service
+@Transactional
 public class TeacherServiceImpl implements TeacherService {
+	
+	@Autowired
+	TeacherDao teacherDao;
 
 	@Override
 	public Teacher getTeacher(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return teacherDao.findById(id);
 	}
 
 	@Override
 	public Teacher addTeacher(Teacher teacher) {
-		// TODO Auto-generated method stub
-		return null;
+		return teacherDao.save(teacher);
 	}
 
 	@Override
 	public Teacher updateTeacher(Long id, Teacher teacher) {
-		// TODO Auto-generated method stub
+		if(teacherDao.exists(id)) {
+			teacher.setId(id);
+			return teacherDao.save(teacher);
+		}
 		return null;
 	}
 
 	@Override
-	public Teacher deleteTeacher(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Long deleteTeacher(Long id) {
+		return teacherDao.deleteById(id);
+	}
+
+	@Override
+	public Iterable<Teacher> getAllTeachers() {
+		return teacherDao.findAll();
 	}
 
 }

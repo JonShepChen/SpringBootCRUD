@@ -38,8 +38,13 @@ public class DepartmentController {
 	
 	@RequestMapping(value="/{deptId}", method=RequestMethod.DELETE)
 	@ResponseBody
-	public Department deleteDepartment(@PathVariable(name="deptId") Long id) {
+	public Long deleteDepartment(@PathVariable(name="deptId") Long id) {
 		return departmentService.deleteDepartment(id);
+	}
+	
+	@RequestMapping(method=RequestMethod.GET)
+	public Iterable<Department> getAllDepartments() {
+		return departmentService.getAllDepartments();
 	}
 
 }
