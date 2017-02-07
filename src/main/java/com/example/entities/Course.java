@@ -10,6 +10,13 @@ public class Course {
 	
 	Long id;
 	String courseName;
+	
+	public Course() {}
+	
+	public Course(Long id, String courseName) {
+		this.id = id;
+		this.courseName = courseName;
+	}
 
 	@Id
 	public Long getId() {

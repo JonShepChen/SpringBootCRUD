@@ -14,6 +14,15 @@ public class Student {
 	String firstName;
 	String lastName;
 	
+	public Student() {};
+	
+	public Student(Long id, Integer grade, String firstName, String lastName) {
+		this.id = id;
+		this.grade = grade;
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
 	@Id
 	public Long getId() {
 		return id;

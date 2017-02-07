@@ -1,10 +1,7 @@
 package com.example.services;
 
-import org.springframework.stereotype.Service;
-
 import com.example.entities.Department;
 
-@Service
 public interface DepartmentService {
 	
 	public Department getDepartment(Long id);

@@ -12,6 +12,14 @@ public class Teacher {
 
 	String firstName;
 	String lastName;
+	
+	public Teacher() {}
+	
+	public Teacher(Long id, String firstname, String lastName) {
+		this.id = id;
+		this.firstName = firstname;
+		this.lastName = lastName;
+	}
 
 	@Id
 	public Long getId() {
@@ -33,6 +41,4 @@ public class Teacher {
 		this.lastName = lastName;
 	}
 	
-	
-
 }

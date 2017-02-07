@@ -1,29 +1,45 @@
 package com.example.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.entities.Department;
 import com.example.services.DepartmentService;
 
 @RestController
+@RequestMapping("/department")
 public class DepartmentController {
 	
+	@Autowired
 	DepartmentService departmentService;
 	
-	public Department getDepartment(Long id) {
-		
+	@RequestMapping(value="/{deptId}", method=RequestMethod.GET)
+	@ResponseBody
+	public Department getDepartment(@PathVariable(name="deptId") Long id) {
+		return departmentService.getDepartment(id);
 	}
 	
-	public Department addDepartment(Department dept) {
-		
+	@RequestMapping(method=RequestMethod.POST)
+	@ResponseBody
+	public Department addDepartment(@RequestBody Department dept) {
+		return departmentService.addDepartment(dept);
+	}
+
+	@RequestMapping(value="/{deptId}", method=RequestMethod.PUT)
+	@ResponseBody
+	public Department updateDepartment(@PathVariable(name="deptId") Long id, @RequestBody Department dept) {
+		return departmentService.updateDepartment(id, dept);
 	}
 	
-	public Department updateDepartment(Long id, Department dept) {
-		
-	}
-	
-	public Department deleteDepartment(Long id) {
-		
+	@RequestMapping(value="/{deptId}", method=RequestMethod.DELETE)
+	@ResponseBody
+	public Department deleteDepartment(@PathVariable(name="deptId") Long id) {
+		return departmentService.deleteDepartment(id);
 	}
 
 }

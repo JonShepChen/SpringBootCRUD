@@ -10,6 +10,13 @@ public class Department {
 	
 	Long id;
 	String departmentName;
+	
+	public Department() {}
+	
+	public Department(Long id, String departmentName) {
+		this.id = id;
+		this.departmentName = departmentName;
+	}
 
 	@Id
 	public Long getId() {
